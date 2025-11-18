@@ -76,7 +76,7 @@ export default function ConversationDetailPage() {
     try {
       setSending(true);
       await apiService.sendMessage({
-        recipientId: id,
+        receiverId: id,
         content: message.trim(),
       });
       setMessage('');

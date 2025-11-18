@@ -22,11 +22,9 @@ import {
   ArrowRight,
   GitCompare
 } from 'lucide-react';
-import { useToast } from '../contexts/ToastContext';
 
 export default function ComparePage() {
   const navigate = useNavigate();
-  const toast = useToast();
   const { selectedProperties, removeFromCompare, clearCompare } = useCompare();
 
   // Analyse du meilleur rapport qualité/prix
@@ -44,7 +42,7 @@ export default function ComparePage() {
         (prop.parking ? 5 : 0) +
         (prop.security ? 10 : 0) +
         (prop.internet ? 5 : 0) +
-        ((prop.neighborhood?.score?.overall || 0) * 10)
+        (((prop as any).neighborhood?.score?.overall || 0) * 10)
       );
       
       const valueScore = score / (totalCost / 1000); // Score par 1000 FCFA

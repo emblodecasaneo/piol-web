@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import { useAuth } from '../contexts/AuthContext';
 import { apiService } from '../api/api';
-import { User, Mail, Phone, LogOut, Save } from 'lucide-react';
+import { User, Mail, Phone, Save } from 'lucide-react';
 import { useToast } from '../contexts/ToastContext';
 
 export default function ProfilePage() {
-  const navigate = useNavigate();
-  const { user, logout, refreshUser } = useAuth();
+  const { user, refreshUser } = useAuth();
   const toast = useToast();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
